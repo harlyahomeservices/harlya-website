@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +71,7 @@
     }
 
     .nav {
-      min-height: 72px;
+      min-height: 96px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -78,16 +79,16 @@
     }
 
     .logo img {
-      width: 150px;
+      width: 280px;
       height: auto;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 34px;
       color: var(--teal-dark);
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 700;
       white-space: nowrap;
     }
@@ -127,9 +128,14 @@
       transform: translateY(-2px);
     }
 
+    header .btn {
+      padding: 17px 30px;
+      font-size: 18px;
+    }
+
     .hero {
       min-height: 830px;
-      padding-top: 72px;
+      padding-top: 96px;
       display: flex;
       align-items: center;
       color: var(--white);
@@ -140,8 +146,12 @@
       background-position: center;
     }
 
+    .hero .container {
+      width: min(1500px, 94%);
+    }
+
     .hero-content {
-      max-width: 990px;
+      max-width: 1120px;
       padding: 100px 0;
       animation: fadeUp 0.9s ease both;
     }
@@ -169,7 +179,7 @@
     }
 
     h1 {
-      max-width: 1050px;
+      max-width: 1180px;
       margin-bottom: 26px;
       color: var(--white);
       font-size: clamp(52px, 7vw, 96px);
@@ -177,7 +187,7 @@
     }
 
     .hero p {
-      max-width: 860px;
+      max-width: 1350px;
       margin-bottom: 34px;
       color: rgba(255, 255, 255, 0.93);
       font-size: 21px;
@@ -504,6 +514,18 @@
       color: var(--muted);
     }
 
+
+    .form-success {
+      display: none;
+      margin-bottom: 18px;
+      padding: 16px 18px;
+      background: var(--teal-light);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--teal-dark);
+      font-weight: 700;
+    }
+
     form {
       display: grid;
       gap: 16px;
@@ -562,14 +584,22 @@
       color: var(--white);
     }
 
+    footer .container {
+      width: min(1700px, 96%);
+      margin: 0 auto;
+    }
+
     .footer-wrap {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 70px;
+      grid-template-columns: 1.45fr 0.8fr 0.8fr;
+      gap: 90px;
+      align-items: start;
+      width: 100%;
     }
 
     .footer-logo {
-      width: 300px;
+      width: 280px;
+      max-width: 100%;
       margin-bottom: 24px;
     }
 
@@ -581,8 +611,14 @@
     }
 
     .footer-text {
-      max-width: 360px;
+      max-width: 520px;
       color: rgba(255, 255, 255, 0.86);
+    }
+
+
+    .footer-column:nth-child(2),
+    .footer-column:nth-child(3) {
+      justify-self: start;
     }
 
     .footer-column h3 {
@@ -609,12 +645,13 @@
     }
 
     .footer-bottom {
+      width: 100%;
       margin-top: 60px;
       padding-top: 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 30px;
       flex-wrap: wrap;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
@@ -662,11 +699,15 @@
       }
 
       .logo img {
-        width: 145px;
+        width: 190px;
       }
 
       .hero {
         min-height: auto;
+      }
+
+      .hero .container {
+        width: min(94%, 980px);
       }
 
       .hero-content {
@@ -702,15 +743,15 @@
 
     @media (max-width: 560px) {
       .nav {
-        min-height: 70px;
+        min-height: 84px;
       }
 
       .logo img {
-        width: 140px;
+        width: 175px;
       }
 
       .hero {
-        padding-top: 70px;
+        padding-top: 84px;
       }
 
       h1 {
@@ -750,7 +791,7 @@
   <header>
     <div class="container nav">
       <a href="#" class="logo">
-        <img src="logo.png" alt="Harlya Home Services logo" />
+        <img src="Harlya-Logo-Compressed.png" alt="Harlya Home Services logo" />
       </a>
 
       <nav>
@@ -1113,27 +1154,60 @@
         </div>
 
         <div class="form-card">
-          <form action="mailto:harlya.homeservices@gmail.com" method="post" enctype="text/plain">
-            <input type="text" name="Name" placeholder="Your name" required />
-            <input type="email" name="Email" placeholder="Your email" required />
-            <input type="tel" name="Phone" placeholder="Phone number" />
+          <div id="form-success" class="form-success">Thank you for your enquiry. We have received your message and will be in touch as soon as possible.</div>
+
+          <form id="enquiry-form" action="https://formspree.io/f/xdaqozzo" method="POST">
+            <input
+              type="text"
+              name="Name"
+              placeholder="Your name"
+              required
+            />
+
+            <input
+              type="email"
+              name="Email"
+              placeholder="Your email"
+              required
+            />
+
+            <input
+              type="tel"
+              name="Phone"
+              placeholder="Phone number"
+            />
 
             <select name="Service" required>
               <option value="" selected disabled>What service do you need?</option>
-              <option>Residential Cleaning</option>
-              <option>Office Cleaning</option>
-              <option>Airbnb Cleaning</option>
-              <option>Holiday Let Cleaning</option>
-              <option>End of Tenancy Cleaning</option>
-              <option>Deep Cleaning</option>
+              <option value="Residential Cleaning">Residential Cleaning</option>
+              <option value="Office Cleaning">Office Cleaning</option>
+              <option value="Airbnb Cleaning">Airbnb Cleaning</option>
+              <option value="Holiday Let Cleaning">Holiday Let Cleaning</option>
+              <option value="End of Tenancy Cleaning">End of Tenancy Cleaning</option>
+              <option value="Deep Cleaning">Deep Cleaning</option>
             </select>
 
             <textarea
               name="Message"
               placeholder="Tell us about the property, location, number of rooms and preferred date"
+              required
             ></textarea>
 
-            <button class="btn btn-teal" type="submit">Send Enquiry</button>
+            <input
+              type="hidden"
+              name="_subject"
+              value="New enquiry from Harlya Home Services"
+            />
+
+            <input
+              type="hidden"
+              name="_next"
+              value="https://harlyahomeservices.co.uk/?success=true"
+            />
+
+            <button class="btn btn-teal" type="submit">
+              Send Enquiry
+            </button>
           </form>
         </div>
       </div>
@@ -1163,7 +1237,7 @@
       <div class="footer-column">
         <h3>Contact</h3>
         <p>07748 826425</p>
-        <p>harlya.homeservices@gmail.com</p>
+        <p><a href="mailto:harlya.homeservices@gmail.com">harlya.homeservices@gmail.com</a></p>
         <p>London and surrounding areas</p>
 
         <div class="social-links">
@@ -1197,5 +1271,58 @@
     href="https://wa.me/447748826425"
     aria-label="Message Harlya on WhatsApp"
   >☎</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("success") === "true") {
+      const successMessage = document.getElementById("form-success");
+      if (successMessage) {
+        successMessage.style.display = "block";
+        successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  </script>
+
+
+  <script>
+    const enquiryForm = document.getElementById("enquiry-form");
+    const successMessage = document.getElementById("form-success");
+
+    if (enquiryForm) {
+      enquiryForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const submitButton = enquiryForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        try {
+          const response = await fetch(enquiryForm.action, {
+            method: "POST",
+            body: new FormData(enquiryForm),
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error("Form submission failed");
+          }
+
+          enquiryForm.reset();
+          enquiryForm.style.display = "none";
+          successMessage.style.display = "block";
+          successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+        } catch (error) {
+          alert("Sorry, your enquiry could not be sent. Please try again or contact us by phone, WhatsApp or email.");
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>
